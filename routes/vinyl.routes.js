@@ -1,3 +1,4 @@
+const User = require("../models/User.model");
 const Vinyl = require("../models/Vinyl.model");
 
 const router = require("express").Router();
@@ -20,12 +21,12 @@ router.post("/vinyl/create", (req, res, next) => {
         description: req.body.description,
         price: req.body.price,
         image: req.body.image,
-        owner: req.body.owner
+        // owner: req.body.owner // we have to reference it // tell browser owner = ad creator
     }
 
     Vinyl.create(newVinyl)
     .then( () => {
-        res.redirect("/vinyl");
+        res.redirect("/vinyl"); //redirect to vinyl list
     })
     .catch(err => {
         console.log("error adding vinyl", err);

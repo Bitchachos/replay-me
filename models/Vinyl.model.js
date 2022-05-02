@@ -5,8 +5,10 @@ const vinylSchema = new Schema(
     album: String,
     artist: String,
     year: Number,
-    genre: String,
-      // enum: ["pop", "rock", "indie", "jazz", "metal", "country"]
+    genre: {
+      type: String,
+      enum: ["pop", "rock", "indie", "jazz", "metal", "country"]
+    },
     condition: {
       type: String,
       enum: ["new", "used"]
@@ -17,10 +19,10 @@ const vinylSchema = new Schema(
       type: String,
       default: "../images/default-vinyl.jpeg"
     },
-    owner: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User"
-    }
+    // owner: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref: "User"
+    // }
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
