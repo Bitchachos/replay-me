@@ -26,12 +26,26 @@ router.post("/vinyl/create", (req, res, next) => {
 
     Vinyl.create(newVinyl)
     .then( () => {
-        res.redirect("/vinyl"); //redirect to vinyl list
+        res.redirect("/vinyl");
+    })
+    .catch(err => {
+        console.log("error adding vinyl", err);
+        next(err);
+    })
+});
+
+// READ - show vinyl list
+router.get("/vinyl", (req, res, next) => {
+    Vinyl.find()
+    //.populate("owner")
+    .then( (vinylArr) => {
+        res.render("vinyl/vinyl-list", { vinyl : vinylArr});
     })
     .catch(err => {
         console.log("error adding vinyl", err);
         next(err);
     })
 })
+
 
 module.exports = router;

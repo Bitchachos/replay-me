@@ -1,0 +1,17 @@
+<h1>List of Vinyl Records in our Database:</h1>
+
+{{#each vinyl}}
+    <section class="card">
+
+        {{#if image}}
+        <img src="/images/{{image}}" alt="{{this.album}}" />
+        {{/if}}
+
+        <h3>{{this.album}}</h3>
+        <h4>by {{this.artist}}</h4>
+        <h4>Price: {{this.price}}€</h4>
+        
+
+        {{!-- <a href="/books/{{this.id}}">More details</a> --}}
+    </section>
+{{/each}}
