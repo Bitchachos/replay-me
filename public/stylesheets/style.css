@@ -10,3 +10,22 @@ a {
 h1 {
   color: 15px;
 }
+
+h2 {
+  margin-top: 20px;
+}
+
+label {
+  padding: 10px;
+}
+
+.submit-button {
+  margin: 10vh 40vw;
+}
+
+@media (max-width: 480px){
+  body {
+    background-color: yellow;
+  }
+}
+

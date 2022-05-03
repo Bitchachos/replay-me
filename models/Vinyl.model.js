@@ -17,7 +17,7 @@ const vinylSchema = new Schema(
     price: Number,
     image: {
       type: String,
-      default: "../images/default-vinyl.jpeg"
+      default: "./images/default-vinyl.jpeg"
     },
     // owner: {
     //   type: mongoose.Schema.Types.ObjectId,
