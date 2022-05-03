@@ -23,6 +23,13 @@ const projectName = "ourproject";
 
 app.locals.appTitle = `${capitalized(projectName)} created with IronLauncher`;
 
+
+app.use("/", (req, res, next) => {
+    res.locals.userData = req.session.user;
+    next();
+});
+
+
 // 👇 Start handling routes here
 const index = require("./routes/index.routes");
 app.use("/", index);

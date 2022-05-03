@@ -44,6 +44,7 @@ router.post("/vinyl/create", (req, res, next) => {
 
 // READ - show vinyl list
 router.get("/vinyl", (req, res, next) => {
+    console.log(res.locals.userData);
     Vinyl.find()
     //.populate("owner")
     .then( (vinylArr) => {

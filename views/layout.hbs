@@ -17,12 +17,22 @@
       <div class="container-fluid">
         <a class="navbar-brand" href="../vinyl"><img src="../images/logo2.png" alt="replay-me-logo"></a>
       <div class="button-div">
+
+        {{#if userData}}
+        <button class="login-button"><a href="/logout">Logout</a></button>
+        {{else}}
         <button class="signup-button"><a href="/register">Register</a></button>
         <button class="login-button"><a href="/login">Login</a></button>
+        {{/if}}
+
+      
       </div>
       </div>
       
+    
     </nav>
+
+    <h1>Hi {{userData.username}}</h1>
 
     {{{body}}}
     <br>
