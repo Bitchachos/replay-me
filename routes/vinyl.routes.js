@@ -5,12 +5,14 @@ const router = require("express").Router();
 
 // CREATE vinyl ad - GET
 router.get("/vinyl/create", (req, res, next) => {
+//router.get("/vinyl/create", isLoggedIn, (req, res, next) => {
     //res.send("dani is a smart boi")
     res.render("vinyl/vinyl-create")
 })
 
 // CREATE - process vinyl form
 router.post("/vinyl/create", (req, res, next) => {
+//router.post("/vinyl/create", isLoggedIn, (req, res, next) => {
 
     const newVinyl = {
         album: req.body.album,
@@ -22,6 +24,7 @@ router.post("/vinyl/create", (req, res, next) => {
         price: req.body.price,
         image: req.body.image,
         // owner: req.body.owner // we have to reference it // tell browser owner = ad creator
+        // owner: req.session.user OR req.user
     }
 
     Vinyl.create(newVinyl)
