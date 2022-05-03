@@ -15,7 +15,6 @@ router.get("/vinyl/create", (req, res, next) => {
 router.post("/vinyl/create", (req, res, next) => {
 //router.post("/vinyl/create", isLoggedIn, (req, res, next) => {
 
-//router.post("/vinyl/create", isLoggedIn, (req, res, next) => {
     //console.log(req.body.image);
     const newVinyl = {
         album: req.body.album,
@@ -28,7 +27,7 @@ router.post("/vinyl/create", (req, res, next) => {
         image: req.body.image,
         // owner: req.body.owner // we have to reference it // tell browser owner = ad creator
         // owner: req.session.user OR req.user
-        image: req.body.image, // req.file.path
+        //image: req.body.image, // req.file.path
         //owner: req.session.user
     }
 
@@ -71,5 +70,44 @@ router.get("/vinyl/:vinylId", (req, res, next) => {
     })
 })
 
+
+// UPDATE vinyl - display form
+router.get("/:vinylId/edit", (req, res, next) => {
+    const id = req.params.vinylId;
+
+    Vinyl.findById(id)
+    .then( (vinylDetails) => {
+        res.render("vinyl/vinyl-edit", vinylDetails)
+    })
+    .catch(err => {
+        console.log("error editing details", err);
+        next(err);
+    })
+})
+
+// UPDATE vinyl - process form
+router.post("/:vinylId/edit", (req, res, next) => {
+    const id = req.params.vinylId;
+
+    const newVinyl = {
+        album: req.body.album,
+        artist: req.body.artist,
+        year: req.body.year,
+        genre: req.body.genre,
+        condition: req.body.condition,
+        description: req.body.description,
+        price: req.body.price,
+        image: req.body.image
+    }
+
+    Vinyl.findByIdAndUpdate(id, newVinyl)
+    .then( (vinylFromDB) => {
+        res.redirect("/vinyl/:vinylId")
+    })
+    .catch(err => {
+        console.log("error showing updated details", err);
+        next(err);
+    })
+})
 
 module.exports = router;

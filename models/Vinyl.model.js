@@ -7,11 +7,11 @@ const vinylSchema = new Schema(
     year: Number,
     genre: {
       type: String,
-      enum: ["pop", "rock", "indie", "jazz", "metal", "country"]
+      enum: ["Pop", "Rock", "Indie", "Jazz", "Metal", "Country"]
     },
     condition: {
       type: String,
-      enum: ["new", "used"]
+      enum: ["New", "Used"]
     },
     description: String,
     price: Number,

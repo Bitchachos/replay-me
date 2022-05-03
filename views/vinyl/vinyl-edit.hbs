@@ -1,0 +1,54 @@
+<h2>Edit the vinyl ad</h2>
+<form action="/:vinylId/edit" method="post">
+  <label>
+    Album:
+    <input type="text" name="album" value="{{this.album}}" />
+  </label>
+  
+  <label>
+    Artist:
+    <input type="text" name="artist" value="{{this.artist}}" />
+  </label>
+
+  <label>
+    Year:
+    <input type="number" name="year" min="1948" max="2022" value="{{this.year}}"/>
+  </label>
+
+  <label value="{{this.genre}}">
+    Genre:
+    <select name="genre" >
+      <option value="pop">Pop</option>
+      <option value="rock">Rock</option>
+      <option value="indie">Indie</option>
+      <option value="jazz">Jazz</option>
+      <option value="metal">Metal</option>
+      <option value="country">Country</option>
+    </select>
+  </label>
+
+  <label>
+    Condition:
+    <input type="radio" name="condition" value="new" value="{{this.condition}}" />
+    <label>New</label>
+    <input type="radio" name="condition" value="used" />
+    <label>Used</label>
+  </label>
+
+    <label>
+     <textarea rows="4" cols="50" name="description" form="usrform" {{this.decription}}></textarea>
+    </label>
+
+  <label>
+    Price:
+    <input type="number" name="price" min="1" value="{{this.price}}" /> €
+  </label>
+
+  <label>
+    Upload image:
+    <input type="file" name="image">
+  </label>
+
+  <input class="btn btn-dark submit-button" type="submit" value="Submit">
+
+</form>
