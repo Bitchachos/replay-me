@@ -72,7 +72,7 @@ router.get("/vinyl/:vinylId", (req, res, next) => {
 
 
 // UPDATE vinyl - display form
-router.get("/:vinylId/edit", (req, res, next) => {
+router.get("/vinyl/:vinylId/edit", (req, res, next) => {
     const id = req.params.vinylId;
 
     Vinyl.findById(id)
@@ -86,7 +86,7 @@ router.get("/:vinylId/edit", (req, res, next) => {
 })
 
 // UPDATE vinyl - process form
-router.post("/:vinylId/edit", (req, res, next) => {
+router.post("/vinyl/:vinylId/edit", (req, res, next) => {
     const id = req.params.vinylId;
 
     const newVinyl = {
@@ -109,5 +109,9 @@ router.post("/:vinylId/edit", (req, res, next) => {
         next(err);
     })
 })
+
+
+// DELETE - delete vinyl
+
 
 module.exports = router;
