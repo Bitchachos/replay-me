@@ -15,8 +15,8 @@ router.get("/vinyl/create", (req, res, next) => {
 router.post("/vinyl/create", (req, res, next) => {
 //router.post("/vinyl/create", isLoggedIn, (req, res, next) => {
 
-router.post("/vinyl/create", isLoggedIn, (req, res, next) => {
-    console.log(req.body.image);
+//router.post("/vinyl/create", isLoggedIn, (req, res, next) => {
+    //console.log(req.body.image);
     const newVinyl = {
         album: req.body.album,
         artist: req.body.artist,
@@ -29,7 +29,7 @@ router.post("/vinyl/create", isLoggedIn, (req, res, next) => {
         // owner: req.body.owner // we have to reference it // tell browser owner = ad creator
         // owner: req.session.user OR req.user
         image: req.body.image, // req.file.path
-        owner: req.session.user
+        //owner: req.session.user
     }
 
     Vinyl.create(newVinyl)
@@ -51,6 +51,22 @@ router.get("/vinyl", (req, res, next) => {
     })
     .catch(err => {
         console.log("error adding vinyl", err);
+        next(err);
+    })
+})
+
+
+// READ - vinyl details
+router.get("/vinyl/:vinylId", (req, res, next) => {
+    const id = req.params.vinylId;
+
+    Vinyl.findById(id)
+    //.populate("owner")
+    .then( (vinylDetails) => {
+        res.render("vinyl/vinyl-details", vinylDetails)
+    })
+    .catch(err => {
+        console.log("error displaying details", err);
         next(err);
     })
 })
