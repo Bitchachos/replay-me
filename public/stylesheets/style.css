@@ -13,7 +13,11 @@ h1 {
 }
 
 h2 {
-  margin-top: 20px;
+  margin-top: 10px;
+}
+
+.lakatata {
+  margin: 0vh 38vw;
 }
 
 label {
@@ -26,6 +30,10 @@ label {
 
 img {
   max-width: 15vw;
+}
+
+.card-img-top {
+  margin-top: 2vh;
 }
 
 @media (max-width: 480px){
