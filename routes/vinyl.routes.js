@@ -12,7 +12,7 @@ router.get("/vinyl/create", (req, res, next) => {
 })
 
 // CREATE - process vinyl form
-router.post("/vinyl/create", (req, res, next) => {
+// router.post("/vinyl/create", (req, res, next) => {
 //router.post("/vinyl/create", isLoggedIn, (req, res, next) => {
 
 //router.post("/vinyl/create", isLoggedIn, (req, res, next) => {
