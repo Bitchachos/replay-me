@@ -115,7 +115,9 @@ router.post("/vinyl/:vinylId/edit", (req, res, next) => {
 router.post("/vinyl/:vinylId/delete", (req, res, next) => {
     const id = req.params.vinylId;
 
-    Vinyl.findByIdAndRemove(id)
+    console.log("mwmammwmammw");
+
+    Vinyl.findByIdAndDelete(id)
     .then( () => {
         res.redirect("/vinyl");
     })
