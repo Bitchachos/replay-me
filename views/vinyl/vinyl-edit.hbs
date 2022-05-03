@@ -1,5 +1,5 @@
 <h2>Edit the vinyl ad</h2>
-<form action="/vinyl/:vinylId/edit" method="post">
+<form action="/vinyl/{{this.id}}/edit" method="post">
   <label>
     Album:
     <input type="text" name="album" value="{{this.album}}" />
@@ -49,6 +49,6 @@
     <input type="file" name="image">
   </label>
 
-  <input class="btn btn-dark submit-button" type="submit" value="Submit">
+  <button class="btn btn-dark submit-button" type="submit">Submit</button>
 
 </form>

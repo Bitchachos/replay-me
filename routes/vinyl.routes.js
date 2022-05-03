@@ -1,6 +1,7 @@
 const isLoggedIn = require("../middleware/isLoggedIn");
 const User = require("../models/User.model");
 const Vinyl = require("../models/Vinyl.model");
+const mongoose = require("mongoose");
 
 const router = require("express").Router();
 
@@ -102,7 +103,7 @@ router.post("/vinyl/:vinylId/edit", (req, res, next) => {
 
     Vinyl.findByIdAndUpdate(id, newVinyl)
     .then( (vinylFromDB) => {
-        res.redirect("/vinyl/:vinylId")
+        res.redirect(`/vinyl/${id}`)
     })
     .catch(err => {
         console.log("error showing updated details", err);
