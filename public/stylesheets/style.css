@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #c4b5b6;
 }
 
 a {
@@ -21,6 +22,10 @@ label {
 
 .submit-button {
   margin: 10vh 40vw;
+}
+
+img {
+  max-width: 15vw;
 }
 
 @media (max-width: 480px){
