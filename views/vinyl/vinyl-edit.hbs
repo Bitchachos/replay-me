@@ -15,23 +15,23 @@
     <input type="number" name="year" min="1948" max="2022" value="{{this.year}}"/>
   </label>
 
-  <label value="{{this.genre}}">
+  <label>
     Genre:
-    <select name="genre" >
-      <option value="pop">Pop</option>
-      <option value="rock">Rock</option>
-      <option value="indie">Indie</option>
-      <option value="jazz">Jazz</option>
-      <option value="metal">Metal</option>
-      <option value="country">Country</option>
+    <select name="genre" value="{{this.genre}}">
+      <option value="Pop">Pop</option>
+      <option value="Rock">Rock</option>
+      <option value="Indie">Indie</option>
+      <option value="Jazz">Jazz</option>
+      <option value="Metal">Metal</option>
+      <option value="Country">Country</option>
     </select>
   </label>
 
   <label>
     Condition:
-    <input type="radio" name="condition" value="new" value="{{this.condition}}" />
+    <input type="radio" name="condition" value="New" value="{{this.condition}}" />
     <label>New</label>
-    <input type="radio" name="condition" value="used" />
+    <input type="radio" name="condition" value="Used" />
     <label>Used</label>
   </label>
 

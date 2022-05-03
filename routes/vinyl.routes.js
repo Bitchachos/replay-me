@@ -112,6 +112,17 @@ router.post("/vinyl/:vinylId/edit", (req, res, next) => {
 
 
 // DELETE - delete vinyl
+router.post("/vinyl/:vinylId/delete", (req, res, next) => {
+    const id = req.params.vinylId;
 
+    Vinyl.findByIdAndRemove(id)
+    .then( () => {
+        res.redirect("/vinyl");
+    })
+    .catch(err => {
+        console.log("error deleting vinyl", err);
+        next(err);
+    })
+})
 
 module.exports = router;
