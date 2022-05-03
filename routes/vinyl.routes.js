@@ -1,3 +1,4 @@
+const isLoggedIn = require("../middleware/isLoggedIn");
 const User = require("../models/User.model");
 const Vinyl = require("../models/Vinyl.model");
 
@@ -14,6 +15,8 @@ router.get("/vinyl/create", (req, res, next) => {
 router.post("/vinyl/create", (req, res, next) => {
 //router.post("/vinyl/create", isLoggedIn, (req, res, next) => {
 
+router.post("/vinyl/create", isLoggedIn, (req, res, next) => {
+    console.log(req.body.image);
     const newVinyl = {
         album: req.body.album,
         artist: req.body.artist,
@@ -25,6 +28,8 @@ router.post("/vinyl/create", (req, res, next) => {
         image: req.body.image,
         // owner: req.body.owner // we have to reference it // tell browser owner = ad creator
         // owner: req.session.user OR req.user
+        image: req.body.image, // req.file.path
+        owner: req.session.user
     }
 
     Vinyl.create(newVinyl)
