@@ -19,11 +19,17 @@ router.get("/register", isLoggedOut, (req, res) => {
 });
 
 router.post("/register", isLoggedOut, (req, res) => {
-  const { username, password } = req.body;
+  const { username, email, password } = req.body;
 
   if (!username) {
     return res.status(400).render("auth/register", {
       errorMessage: "Please provide your username.",
+    });
+  }
+
+  if (!email) {
+    return res.status(400).render("auth/register", {
+      errorMessage: "Please provide your email address.",
     });
   }
 
@@ -62,6 +68,7 @@ router.post("/register", isLoggedOut, (req, res) => {
         // Create a user and save it in the database
         return User.create({
           username,
+          email,
           passwordHash: hashedPassword,
         });
       })
@@ -121,7 +128,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
       }
 
       // If user is found based on the username, check if the in putted password matches the one saved in the database
-      bcrypt.compare(password, user.password).then((isSamePassword) => {
+      bcrypt.compare(password, user.passwordHash).then((isSamePassword) => {
         if (!isSamePassword) {
           return res.status(400).render("auth/login", {
             errorMessage: "Wrong credentials.",
