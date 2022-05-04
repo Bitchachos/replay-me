@@ -1,4 +1,5 @@
 const isLoggedIn = require("../middleware/isLoggedIn");
+const isOwner = require("../middleware/isOwner");
 const User = require("../models/User.model");
 const Vinyl = require("../models/Vinyl.model");
 const mongoose = require("mongoose");
@@ -72,7 +73,7 @@ router.get("/vinyl/:vinylId", (req, res, next) => {
 
 
 // UPDATE vinyl - display form
-router.get("/vinyl/:vinylId/edit", isLoggedIn, (req, res, next) => {
+router.get("/vinyl/:vinylId/edit", isLoggedIn, isOwner, (req, res, next) => {
     const id = req.params.vinylId;
 
     Vinyl.findById(id)
@@ -86,7 +87,7 @@ router.get("/vinyl/:vinylId/edit", isLoggedIn, (req, res, next) => {
 })
 
 // UPDATE vinyl - process form
-router.post("/vinyl/:vinylId/edit", isLoggedIn, (req, res, next) => {
+router.post("/vinyl/:vinylId/edit", isLoggedIn, isOwner, (req, res, next) => {
     const id = req.params.vinylId;
 
     const newVinyl = {
@@ -112,7 +113,7 @@ router.post("/vinyl/:vinylId/edit", isLoggedIn, (req, res, next) => {
 
 
 // DELETE - delete vinyl
-router.post("/vinyl/:vinylId/delete", isLoggedIn, (req, res, next) => {
+router.post("/vinyl/:vinylId/delete", isLoggedIn, isOwner, (req, res, next) => {
     const id = req.params.vinylId;
 
     Vinyl.findByIdAndDelete(id)
