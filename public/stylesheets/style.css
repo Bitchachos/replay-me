@@ -29,6 +29,14 @@ h2 {
   margin-left: -13vw;
 }
 
+#quote {
+  margin-top: 6vh;
+  text-align: center;
+  font-style: italic;
+  color: #541c13;
+  text-shadow: 12px 10px rgba(0,0,0,0.24)
+}
+
 ul {
   list-style: none;
   display: flex;

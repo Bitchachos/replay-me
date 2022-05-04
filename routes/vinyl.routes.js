@@ -75,10 +75,13 @@ router.get("/vinyl/:vinylId", (req, res, next) => {
 // UPDATE vinyl - display form
 router.get("/vinyl/:vinylId/edit", isLoggedIn, isOwner, (req, res, next) => {
     const id = req.params.vinylId;
-
+    // req.session.user._id === vinyl.owner._id.toString()
+    let ownerUser = false
     Vinyl.findById(id)
     .then( (vinylDetails) => {
-        res.render("vinyl/vinyl-edit", vinylDetails)
+        if(req.session.user._id === vinylDetails.owner._id.toString()) {ownerUser = true}
+        console.log({vinylDetails, ownerUser});
+        res.render("vinyl/vinyl-edit", {vinylDetails, ownerUser})
     })
     .catch(err => {
         console.log("error editing details", err);
