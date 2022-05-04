@@ -1,11 +1,16 @@
+html {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #c4b5b6;
+  /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
+  background-color: #efdcd3;
 }
 
 a {
   color: #ffffff;
+  text-decoration: none;
 }
 
 h1 {
@@ -17,7 +22,7 @@ h2 {
 }
 
 .container-fluid {
-  margin-left: 38vw;
+  margin-left: 37vw;
 }
 
 label {
@@ -36,12 +41,6 @@ img {
   margin-top: 2vh;
 }
 
-@media (max-width: 480px){
-  body {
-    background-color: yellow;
-  }
-}
-
 .button-div{
     
   width:15vw;
@@ -49,7 +48,7 @@ img {
   display:flex;
   justify-content:center;
   align-items:center;
-  margin: 0vh 30vw;
+  /* margin: 0vh 30vw; */
   border-radius:7px;
   padding:7px;
 }
@@ -60,7 +59,7 @@ img {
   margin-right:7px;
   border:none;
   border-radius:5px;
-  background-color:#b2b4b8;
+  background-color:#7c5b41;
   font-size:17px;
   font-weight:600;
   cursor:pointer;
@@ -74,17 +73,37 @@ img {
   font-size:17px;
   font-weight:600;
   color:#fff;
-  background-color:#1859c9;
+  background-color:#541c13;
   cursor:pointer;
+  margin-right: 0.5vw;
 }
 
 .signup-button:hover{
-  
-  background-color:#2c63c2db;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  background-color:#53342f;
 }
 
 .login-button:hover{
-  
-  background-color:#cccfd4d1;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  background-color:#7e6858;
 }
 
+.btn-primary {
+  background-color: #aa574b;
+  border: 2px solid #541c13;
+}
+
+.btn-primary:hover {
+  background-color: #a77169;
+  border: 2px solid #572820;
+}
+
+a:hover {
+  color: white;
+}
+
+@media (max-width: 480px){
+  body {
+    background-color: yellow;
+  }
+}
