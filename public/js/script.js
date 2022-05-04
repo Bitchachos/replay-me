@@ -1,7 +1,7 @@
 document.addEventListener(
   "DOMContentLoaded",
   () => {
-    console.log("ourproject JS imported successfully!");
+    console.log("replay-me JS imported successfully!");
   },
   false
 );

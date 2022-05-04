@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const { default: mongoose } = require("mongoose");
 
 const vinylSchema = new Schema(
   {

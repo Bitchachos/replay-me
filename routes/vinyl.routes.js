@@ -6,15 +6,14 @@ const mongoose = require("mongoose");
 const router = require("express").Router();
 
 // CREATE vinyl ad - GET
-router.get("/vinyl/create", (req, res, next) => {
-//router.get("/vinyl/create", isLoggedIn, (req, res, next) => {
-    //res.send("dani is a smart boi")
+//router.get("/vinyl/create", (req, res, next) => {
+router.get("/vinyl/create", isLoggedIn, (req, res, next) => {
     res.render("vinyl/vinyl-create")
 })
 
 // CREATE - process vinyl form
-router.post("/vinyl/create", (req, res, next) => {
-//router.post("/vinyl/create", isLoggedIn, (req, res, next) => {
+//router.post("/vinyl/create", (req, res, next) => {
+router.post("/vinyl/create", isLoggedIn, (req, res, next) => {
 
     //console.log(req.body.image);
     const newVinyl = {
@@ -26,12 +25,13 @@ router.post("/vinyl/create", (req, res, next) => {
         description: req.body.description,
         price: req.body.price,
         image: req.body.image,
-        // owner: req.body.owner // we have to reference it // tell browser owner = ad creator
+        owner: req.session.user
+
         // owner: req.session.user OR req.user
         //image: req.body.image, // req.file.path
-        //owner: req.session.user
+        
     }
-
+console.log(newVinyl);
     Vinyl.create(newVinyl)
     .then( () => {
         res.redirect("/vinyl");
@@ -46,7 +46,7 @@ router.post("/vinyl/create", (req, res, next) => {
 router.get("/vinyl", (req, res, next) => {
     console.log(res.locals.userData);
     Vinyl.find()
-    //.populate("owner")
+    .populate("owner")
     .then( (vinylArr) => {
         res.render("vinyl/vinyl-list", { vinyl : vinylArr});
     })
@@ -62,7 +62,7 @@ router.get("/vinyl/:vinylId", (req, res, next) => {
     const id = req.params.vinylId;
 
     Vinyl.findById(id)
-    //.populate("owner")
+    .populate("owner")
     .then( (vinylDetails) => {
         res.render("vinyl/vinyl-details", vinylDetails)
     })
@@ -103,7 +103,7 @@ router.post("/vinyl/:vinylId/edit", (req, res, next) => {
     }
 
     Vinyl.findByIdAndUpdate(id, newVinyl)
-    .then( (vinylFromDB) => {
+    .then( () => {
         res.redirect(`/vinyl/${id}`)
     })
     .catch(err => {
