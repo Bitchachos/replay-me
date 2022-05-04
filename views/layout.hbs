@@ -32,7 +32,10 @@
     
     </nav>
 
-    <h1>Hi {{userData.username}}</h1>
+
+    {{#if userData}}
+     <h1>Hi, {{userData.username}}</h1>
+    {{/if}}
 
     {{{body}}}
     <br>

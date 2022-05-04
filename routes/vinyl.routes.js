@@ -15,7 +15,6 @@ router.get("/vinyl/create", isLoggedIn, (req, res, next) => {
 //router.post("/vinyl/create", (req, res, next) => {
 router.post("/vinyl/create", isLoggedIn, (req, res, next) => {
 
-    //console.log(req.body.image);
     const newVinyl = {
         album: req.body.album,
         artist: req.body.artist,
@@ -31,7 +30,7 @@ router.post("/vinyl/create", isLoggedIn, (req, res, next) => {
         //image: req.body.image, // req.file.path
         
     }
-console.log(newVinyl);
+
     Vinyl.create(newVinyl)
     .then( () => {
         res.redirect("/vinyl");
@@ -44,7 +43,6 @@ console.log(newVinyl);
 
 // READ - show vinyl list
 router.get("/vinyl", (req, res, next) => {
-    console.log(res.locals.userData);
     Vinyl.find()
     .populate("owner")
     .then( (vinylArr) => {
@@ -74,7 +72,7 @@ router.get("/vinyl/:vinylId", (req, res, next) => {
 
 
 // UPDATE vinyl - display form
-router.get("/vinyl/:vinylId/edit", (req, res, next) => {
+router.get("/vinyl/:vinylId/edit", isLoggedIn, (req, res, next) => {
     const id = req.params.vinylId;
 
     Vinyl.findById(id)
@@ -88,7 +86,7 @@ router.get("/vinyl/:vinylId/edit", (req, res, next) => {
 })
 
 // UPDATE vinyl - process form
-router.post("/vinyl/:vinylId/edit", (req, res, next) => {
+router.post("/vinyl/:vinylId/edit", isLoggedIn, (req, res, next) => {
     const id = req.params.vinylId;
 
     const newVinyl = {
@@ -114,10 +112,8 @@ router.post("/vinyl/:vinylId/edit", (req, res, next) => {
 
 
 // DELETE - delete vinyl
-router.post("/vinyl/:vinylId/delete", (req, res, next) => {
+router.post("/vinyl/:vinylId/delete", isLoggedIn, (req, res, next) => {
     const id = req.params.vinylId;
-
-    console.log("mwmammwmammw");
 
     Vinyl.findByIdAndDelete(id)
     .then( () => {

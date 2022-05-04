@@ -9,6 +9,7 @@
             <h5 class="card-title"><b>Release date:</b> {{this.year}}</h5>
             <h5 class="card-title"><b>Genre:</b> {{this.genre}}</h5>
             <h5 class="card-title"><b>Condition:</b> {{this.condition}}</h5>
+            <h6 class="card-title"><b>Uploaded by:</b> {{this.owner.username}}</h6>
             <p class="card-text">{{this.description}}</p>
             <a href="/vinyl/{{this._id}}/edit" class="btn btn-primary">Edit</a>
             <form action="/vinyl/{{this._id}}/delete" method="post" ><button class="btn btn-primary">Delete</button></form>
