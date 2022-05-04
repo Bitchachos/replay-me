@@ -22,7 +22,31 @@ h2 {
 }
 
 .container-fluid {
-  margin-left: 37vw;
+  
+}
+
+.navbar-brand{
+  margin-left: -13vw;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  text-align: center;
+  vertical-align: center;
+  margin-bottom: -1vh;
+}
+
+li {
+  margin-right: 3vw;
+}
+
+li a {
+  color: #541c13;
+}
+
+li a:hover {
+  color: #efdcd3;
 }
 
 label {
@@ -100,6 +124,10 @@ img {
 
 a:hover {
   color: white;
+}
+
+#welcome {
+  margin-top: 3vh;
 }
 
 @media (max-width: 480px){
