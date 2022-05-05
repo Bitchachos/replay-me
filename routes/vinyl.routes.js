@@ -3,6 +3,7 @@ const isOwner = require("../middleware/isOwner");
 const User = require("../models/User.model");
 const Vinyl = require("../models/Vinyl.model");
 const mongoose = require("mongoose");
+const fileUploader = require('../config/cloudinary.config');
 
 const router = require("express").Router();
 
@@ -14,7 +15,7 @@ router.get("/vinyl/create", isLoggedIn, (req, res, next) => {
 
 // CREATE - process vinyl form
 //router.post("/vinyl/create", (req, res, next) => {
-router.post("/vinyl/create", isLoggedIn, (req, res, next) => {
+router.post("/vinyl/create", isLoggedIn, fileUploader.single('vinyl-cover-image'), (req, res, next) => {
 
     const newVinyl = {
         album: req.body.album,
@@ -24,7 +25,7 @@ router.post("/vinyl/create", isLoggedIn, (req, res, next) => {
         condition: req.body.condition,
         description: req.body.description,
         price: req.body.price,
-        image: req.body.image,
+        image: req.file.path,
         owner: req.session.user
 
         // owner: req.session.user OR req.user
