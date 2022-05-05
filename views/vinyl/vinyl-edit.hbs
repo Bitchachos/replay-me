@@ -1,23 +1,23 @@
 <h2>Edit the vinyl ad</h2>
-<form action="/vinyl/{{this.id}}/edit" method="post">
+<form action="/vinyl/{{vinylDetails._id}}/edit" method="post">
   <label>
     Album:
-    <input type="text" name="album" value="{{this.album}}" />
+    <input type="text" name="album" value="{{vinylDetails.album}}" />
   </label>
   
   <label>
     Artist:
-    <input type="text" name="artist" value="{{this.artist}}" />
+    <input type="text" name="artist" value="{{vinylDetails.artist}}" />
   </label>
 
   <label>
     Year:
-    <input type="number" name="year" min="1948" max="2022" value="{{this.year}}"/>
+    <input type="number" name="year" min="1948" max="2022" value="{{vinylDetails.year}}"/>
   </label>
 
   <label>
     Genre:
-    <select name="genre" value="{{this.genre}}">
+    <select name="genre" value="{{vinylDetails.genre}}">
       <option value="Pop">Pop</option>
       <option value="Rock">Rock</option>
       <option value="Indie">Indie</option>
@@ -29,19 +29,20 @@
 
   <label>
     Condition:
-    <input type="radio" name="condition" value="New" value="{{this.condition}}" />
+    <input type="radio" name="condition" value="New" value="{{vinylDetails.condition}}" />
     <label>New</label>
     <input type="radio" name="condition" value="Used" />
     <label>Used</label>
   </label>
 
     <label>
-     <textarea rows="4" cols="50" name="description" form="usrform">{{this.decription}}</textarea>
+      Description:
+     <textarea rows="4" cols="50" name="description">{{vinylDetails.description}}</textarea>
     </label>
 
   <label>
     Price:
-    <input type="number" name="price" min="1" value="{{this.price}}" /> €
+    <input type="number" name="price" min="1" value="{{vinylDetails.price}}" /> €
   </label>
 
   <label>
@@ -50,5 +51,4 @@
   </label>
 
   <button class="btn btn-primary" type="submit">Submit</button>
-
 </form>

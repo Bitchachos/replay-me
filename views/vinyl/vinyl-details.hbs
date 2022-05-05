@@ -3,19 +3,18 @@
     <section class="card row mx-5 mb-5" style="width: 18rem;">
         <img src="/images/{{this.image}}" alt="{{this.album}}" class="card-img-top">
         <div class="card-body">
-            <h2 class="card-title">{{this.album}}</h2>
-            <h6>by</h6><h3 class="card-title">{{this.artist}}</h3>
-            <h5 class="card-title"><b>Price:</b> {{this.price}}€</h5>
-            <h5 class="card-title"><b>Release date:</b> {{this.year}}</h5>
-            <h5 class="card-title"><b>Genre:</b> {{this.genre}}</h5>
-            <h5 class="card-title"><b>Condition:</b> {{this.condition}}</h5>
-            <h6 class="card-title"><b>Uploaded by:</b> {{this.owner.username}}</h6>
-            <p class="card-text">{{this.description}}</p>
-            {{!-- <p>{{../this.ownerUser}}heyyyyyyy</p> --}}
-            {{!-- {{#if ../this.ownerUser}} --}}
-            <a href="/vinyl/{{this._id}}/edit" class="btn btn-primary">Edit</a>
-            <form action="/vinyl/{{this._id}}/delete" method="post" ><button class="btn btn-primary">Delete</button></form>
-            {{!-- {{/if}} --}}
+            <h2 class="card-title">{{this.vinylDetails.album}}</h2>
+            <h6>by</h6><h3 class="card-title">{{this.vinylDetails.artist}}</h3>
+            <h5 class="card-title"><b>Price:</b> {{this.vinylDetails.price}}€</h5>
+            <h5 class="card-title"><b>Release date:</b> {{this.vinylDetails.year}}</h5>
+            <h5 class="card-title"><b>Genre:</b> {{this.vinylDetails.genre}}</h5>
+            <h5 class="card-title"><b>Condition:</b> {{this.vinylDetails.condition}}</h5>
+            <h6 class="card-title"><b>Uploaded by:</b> {{this.vinylDetails.owner.username}}</h6>
+            <p class="card-text"><b>Description:</b> {{this.vinylDetails.description}}</p>
+            {{#if ownerUser}}
+            <a href="/vinyl/{{this.vinylDetails._id}}/edit" class="btn btn-primary">Edit</a>
+            <form action="/vinyl/{{this.vinylDetails._id}}/delete" method="post" ><button class="btn btn-primary">Delete</button></form>
+            {{/if}}
         </div>
     </section>
     

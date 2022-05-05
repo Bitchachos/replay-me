@@ -59,11 +59,13 @@ router.get("/vinyl", (req, res, next) => {
 // READ - vinyl details
 router.get("/vinyl/:vinylId", (req, res, next) => {
     const id = req.params.vinylId;
+    let ownerUser = false
 
     Vinyl.findById(id)
     .populate("owner")
     .then( (vinylDetails) => {
-        res.render("vinyl/vinyl-details", vinylDetails)
+        if(req.session.user._id === vinylDetails.owner._id.toString()) {ownerUser = true}
+        res.render("vinyl/vinyl-details", {vinylDetails, ownerUser})
     })
     .catch(err => {
         console.log("error displaying details", err);
