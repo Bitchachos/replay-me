@@ -25,7 +25,7 @@ router.post("/vinyl/create", isLoggedIn, /*fileUploader.single('vinyl-cover-imag
         condition: req.body.condition,
         description: req.body.description,
         price: req.body.price,
-        image: req.image.body,                 /*file.path*/
+        image: req.body.image,                 /*file.path*/
         owner: req.session.user
 
         // owner: req.session.user OR req.user
