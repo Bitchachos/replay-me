@@ -61,11 +61,10 @@ router.get("/vinyl", (req, res, next) => {
 router.get("/vinyl/:vinylId", (req, res, next) => {
     const id = req.params.vinylId;
     let ownerUser = false
-    console.log("stringgu");
     Vinyl.findById(id)
     .populate("owner")
     .then( (vinylDetails) => {
-        console.log("HEYHEY", vinylDetails);
+
         if(req.session.user?._id === vinylDetails.owner._id.toString()) {ownerUser = true}
         res.render("vinyl/vinyl-details", {vinylDetails, ownerUser})
     })
