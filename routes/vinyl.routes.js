@@ -15,7 +15,7 @@ router.get("/vinyl/create", isLoggedIn, (req, res, next) => {
 
 // CREATE - process vinyl form
 //router.post("/vinyl/create", (req, res, next) => {
-router.post("/vinyl/create", isLoggedIn, fileUploader.single('vinyl-cover-image'), (req, res, next) => {
+router.post("/vinyl/create", isLoggedIn, /*fileUploader.single('vinyl-cover-image'),*/ (req, res, next) => {
 
     const newVinyl = {
         album: req.body.album,
@@ -25,7 +25,7 @@ router.post("/vinyl/create", isLoggedIn, fileUploader.single('vinyl-cover-image'
         condition: req.body.condition,
         description: req.body.description,
         price: req.body.price,
-        image: req.file.path,
+        image: req.image.body,                 /*file.path*/
         owner: req.session.user
 
         // owner: req.session.user OR req.user
