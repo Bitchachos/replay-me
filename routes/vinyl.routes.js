@@ -35,8 +35,6 @@ router.post("/vinyl/create", isLoggedIn, fileUploader.single('vinyl-cover-image'
     } else {
         newVinyl.image = req.file.path
     }
-    console.log(newVinyl);
-    console.log("reqFILE", req.file);
     Vinyl.create(newVinyl)
     .then( () => {
         res.redirect("/vinyl");
@@ -87,7 +85,6 @@ router.get("/vinyl/:vinylId/edit", isLoggedIn, isOwner, (req, res, next) => {
     Vinyl.findById(id)
     .then( (vinylDetails) => {
         if(req.session.user._id === vinylDetails.owner._id.toString()) {ownerUser = true}
-        console.log({vinylDetails, ownerUser});
         res.render("vinyl/vinyl-edit", {vinylDetails, ownerUser})
     })
     .catch(err => {
