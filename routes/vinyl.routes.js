@@ -15,7 +15,7 @@ router.get("/vinyl/create", isLoggedIn, (req, res, next) => {
 
 // CREATE - process vinyl form
 //router.post("/vinyl/create", (req, res, next) => {
-router.post("/vinyl/create", isLoggedIn, /*fileUploader.single('vinyl-cover-image'),*/ (req, res, next) => {
+router.post("/vinyl/create", isLoggedIn, fileUploader.single('vinyl-cover-image'), (req, res, next) => {
 
     const newVinyl = {
         album: req.body.album,
@@ -25,14 +25,18 @@ router.post("/vinyl/create", isLoggedIn, /*fileUploader.single('vinyl-cover-imag
         condition: req.body.condition,
         description: req.body.description,
         price: req.body.price,
-        image: req.body.image,                 /*file.path*/
         owner: req.session.user
 
         // owner: req.session.user OR req.user
-        //image: req.body.image, // req.file.path
-        
+        //image: req.body.image, // req.file.path  
     }
-
+    if (!req.file) {
+        newVinyl.image = "https://images.pexels.com/photos/2746823/pexels-photo-2746823.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+    } else {
+        newVinyl.image = req.file.path
+    }
+    console.log(newVinyl);
+    console.log("reqFILE", req.file);
     Vinyl.create(newVinyl)
     .then( () => {
         res.redirect("/vinyl");

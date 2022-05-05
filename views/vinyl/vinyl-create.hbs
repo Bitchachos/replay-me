@@ -1,5 +1,5 @@
 <h2>Create a new vinyl ad</h2>
-<form action="/vinyl/create" method="post">
+<form action="/vinyl/create" method="post" enctype="multipart/form-data">
   <label>
     Album:
     <input type="text" name="album" required />
@@ -45,10 +45,11 @@
     <input type="number" name="price" min="1" required /> €
   </label>
 
-  {{!-- <label>
+  <label>
     Upload image:
     <input type="file" name="vinyl-cover-image"/>
-  </label> --}}
+    {{!-- <input type="text" name="existingImage" hidden value="{{image}}"> --}}
+  </label>
 
   <input class="btn btn-primary" type="submit" value="Submit">
 

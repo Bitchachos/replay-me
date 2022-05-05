@@ -57,7 +57,7 @@ router.post("/register", isLoggedOut, (req, res) => {
     if (found) {
       return res
         .status(400)
-        .render("auth.register", { errorMessage: "Username already taken." });
+        .render("auth/register", { errorMessage: "Username already taken." });
     }
 
     // if user is not found, create a new user - start with hashing the password
