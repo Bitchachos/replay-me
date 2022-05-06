@@ -1,5 +1,5 @@
 <h2>Create a new vinyl ad</h2>
-<form action="/vinyl/create" method="post" enctype="multipart/form-data">
+<form class="forms" action="/vinyl/create" method="post" enctype="multipart/form-data">
   <label>
     Album:
     <input type="text" name="album" required />
@@ -29,9 +29,10 @@
 
   <label>
     Condition:
-    <input type="radio" name="condition" value="New" />
+    <br>
+    <input class="radio-buttons" type="radio" name="condition" value="New" />
     <label>New</label>
-    <input type="radio" name="condition" value="Used" />
+    <input class="radio-buttons" type="radio" name="condition" value="Used" />
     <label>Used</label>
   </label>
 
@@ -51,6 +52,6 @@
     {{!-- <input type="text" name="existingImage" hidden value="{{image}}"> --}}
   </label>
 
-  <input class="btn btn-primary" type="submit" value="Submit">
+  <input class="btn btn-primary create-form-button" type="submit" value="Submit">
 
 </form>

@@ -25,6 +25,19 @@ h2 {
   
 }
 
+.forms {
+  display: block;
+  border: 2px solid #541c13;
+  border-radius: 5px;
+  color: #541c13;
+  padding: 1%;
+}
+
+label {
+  display: block;
+  text-align: center;
+}
+
 .navbar-brand{
   margin-left: -13vw;
 }
@@ -143,6 +156,14 @@ a:hover {
   border-radius: 5px;
   color: #541c13;
   padding: 1%;
+}
+
+.create-form-button {
+  margin: 2% 47%;
+}
+
+.radio-buttons {
+  display: inline-flex;
 }
 
 @media (max-width: 480px){
