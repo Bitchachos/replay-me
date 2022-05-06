@@ -11,6 +11,7 @@
             <h5 class="card-title"><b>Condition:</b> {{this.vinylDetails.condition}}</h5>
             <h6 class="card-title"><b>Uploaded by:</b> {{this.vinylDetails.owner.username}}</h6>
             <p class="card-text"><b>Description:</b> {{this.vinylDetails.description}}</p>
+            <p><a href="mailto:dluqueru@gmail.com">Contact Seller</a></p>
             {{#if ownerUser}}
             <a href="/vinyl/{{this.vinylDetails._id}}/edit" class="btn btn-primary">Edit</a>
             <form action="/vinyl/{{this.vinylDetails._id}}/delete" method="post" ><button class="btn btn-primary">Delete</button></form>
