@@ -138,6 +138,13 @@ a:hover {
   margin-top: 3vh;
 }
 
+#contact-seller {
+  border: 1px solid #541c13;
+  border-radius: 5px;
+  color: #541c13;
+  padding: 1%;
+}
+
 @media (max-width: 480px){
   body {
     background-color: yellow;
