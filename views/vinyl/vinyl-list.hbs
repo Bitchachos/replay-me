@@ -1,7 +1,10 @@
 <h1>Available Vinyl Records</h1>
-{{#each vinyl}}
 
-    <section class="card row mx-5 mb-5" style="width: 18rem;">
+
+    <div class="container">
+    <div class="row" style="display:flex; justify-content:center">
+    {{#each vinyl}}
+    <section class="card col-3" style = "margin: 1%">
         {{#if image}}
         <img src="{{this.image}}" alt="{{this.album}}" class="card-img-top">
         {{/if}}
@@ -12,5 +15,8 @@
             <a href="/vinyl/{{this.id}}" class="btn btn-primary">View details</a>
         </div>
     </section>
+    {{/each}}
+    </div>
+    </div>
 
-{{/each}}
+
