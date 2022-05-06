@@ -167,9 +167,14 @@ a:hover {
 }
 
 .carrousel-images {
+  max-height: 400px;
+  min-width: 500px;
+  max-width: 700px;
+}
+
+.carousel-div {
   display: flex;
-  min-width: 50%;
-  justify-content: center;
+  text-align: center;
 }
 
 @media (max-width: 480px){
