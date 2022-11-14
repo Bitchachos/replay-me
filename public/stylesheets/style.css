@@ -4,7 +4,6 @@ html {
 
 body {
   padding: 50px;
-  /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
   background-color: #efdcd3;
 }
 
@@ -21,9 +20,10 @@ h2 {
   margin-top: 10px;
 }
 
-.container-fluid {
+
+/* .container-fluid {
   
-}
+} */
 
 .forms {
   display: block;
@@ -38,16 +38,12 @@ label {
   text-align: center;
 }
 
-.navbar-brand{
-  margin-left: -13vw;
+.navbar {
+  background-image: linear-gradient(#efdcd3, white, #efdcd3);
 }
 
-#quote {
-  margin-top: 6vh;
-  text-align: center;
-  font-style: italic;
-  color: #541c13;
-  text-shadow: 12px 10px rgba(0,0,0,0.24)
+.navbar-brand{
+  margin-left: -13vw;
 }
 
 ul {
@@ -78,27 +74,22 @@ label {
   margin: 10vh 40vw;
 }
 
-img {
+.card-img-top {
+  margin-top: 2vh;
   max-width: 15vw;
 }
 
-.card-img-top {
-  margin-top: 2vh;
-}
-
-.button-div{
-    
+.button-div {  
   width:15vw;
   height:5vh;
   display:flex;
   justify-content:center;
   align-items:center;
-  /* margin: 0vh 30vw; */
   border-radius:7px;
   padding:7px;
 }
 
-.login-button{
+.login-button {
   width:100%;
   height:7vh;
   margin-right:7px;
@@ -110,7 +101,7 @@ img {
   cursor:pointer;
 }
 
-.signup-button{
+.signup-button {
   width:100%;
   height:7vh;
   border:none;
@@ -123,12 +114,12 @@ img {
   margin-right: 0.5vw;
 }
 
-.signup-button:hover{
+.signup-button:hover {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
   background-color:#53342f;
 }
 
-.login-button:hover{
+.login-button:hover {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
   background-color:#7e6858;
 }
@@ -166,15 +157,20 @@ a:hover {
   display: inline-flex;
 }
 
-.carrousel-images {
-  max-height: 400px;
-  min-width: 500px;
-  max-width: 700px;
+.carousel,
+.carousel-item,
+.active {
+    max-width: 100%;
+    height: 70vh;
+    transition: 0.2s ease;
 }
 
-.carousel-div {
-  display: flex;
+#quote {
   text-align: center;
+  font-style: italic;
+  color: #541c13;
+  text-shadow: 12px 10px rgba(0,0,0,0.24);
+  z-index: -2;
 }
 
 @media (max-width: 480px){
